@@ -45,6 +45,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C36E16B624C17F0C008521C7 /* HeartRateViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */,
+				C36E16AC24C10650008521C7 /* HeartRateViewController.xib */,
+			);
+			path = HeartRateViewController;
+			sourceTree = "<group>";
+		};
+		C36E16B724C17F1E008521C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C36E16B424C17D40008521C7 /* UIViewController+nibLoaded.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C36E16B824C17F31008521C7 /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				C3FF1ADA24C17FA000B8FC52 /* VideoSessionManager */,
+				C36E16AE24C107D9008521C7 /* TorchManager.swift */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
 		C3C24E5E24BFA77F00CF5B6B = {
 			isa = PBXGroup;
 			children = (
@@ -64,19 +90,25 @@
 		C3C24E6924BFA77F00CF5B6B /* HeartRateApp */ = {
 			isa = PBXGroup;
 			children = (
+				C36E16B824C17F31008521C7 /* DataManagers */,
+				C36E16B724C17F1E008521C7 /* Extensions */,
+				C36E16B624C17F0C008521C7 /* HeartRateViewController */,
 				C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */,
 				C3C24E6C24BFA77F00CF5B6B /* SceneDelegate.swift */,
-				C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */,
-				C36E16B424C17D40008521C7 /* UIViewController+nibLoaded.swift */,
-				C36E16B024C1768A008521C7 /* VideoSessionManager.swift */,
-				C36E16B224C176FE008521C7 /* VideoSessionManagerDelegate.swift */,
-				C36E16AE24C107D9008521C7 /* TorchManager.swift */,
-				C36E16AC24C10650008521C7 /* HeartRateViewController.xib */,
 				C3C24E7324BFA78200CF5B6B /* Assets.xcassets */,
 				C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */,
 				C3C24E7824BFA78200CF5B6B /* Info.plist */,
 			);
 			path = HeartRateApp;
+			sourceTree = "<group>";
+		};
+		C3FF1ADA24C17FA000B8FC52 /* VideoSessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				C36E16B024C1768A008521C7 /* VideoSessionManager.swift */,
+				C36E16B224C176FE008521C7 /* VideoSessionManagerDelegate.swift */,
+			);
+			path = VideoSessionManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
