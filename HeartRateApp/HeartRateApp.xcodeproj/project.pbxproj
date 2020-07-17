@@ -7,20 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C36E16AB24C1062D008521C7 /* HeartRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */; };
+		C36E16AD24C10650008521C7 /* HeartRateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36E16AC24C10650008521C7 /* HeartRateViewController.xib */; };
+		C36E16AF24C107D9008521C7 /* TorchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16AE24C107D9008521C7 /* TorchManager.swift */; };
+		C36E16B124C1768A008521C7 /* VideoSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16B024C1768A008521C7 /* VideoSessionManager.swift */; };
+		C36E16B324C176FE008521C7 /* VideoSessionManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16B224C176FE008521C7 /* VideoSessionManagerDelegate.swift */; };
+		C36E16B524C17D40008521C7 /* UIViewController+nibLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16B424C17D40008521C7 /* UIViewController+nibLoaded.swift */; };
 		C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */; };
 		C3C24E6D24BFA77F00CF5B6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C24E6C24BFA77F00CF5B6B /* SceneDelegate.swift */; };
-		C3C24E6F24BFA77F00CF5B6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C24E6E24BFA77F00CF5B6B /* ViewController.swift */; };
-		C3C24E7224BFA77F00CF5B6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7024BFA77F00CF5B6B /* Main.storyboard */; };
 		C3C24E7424BFA78200CF5B6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7324BFA78200CF5B6B /* Assets.xcassets */; };
 		C3C24E7724BFA78200CF5B6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateViewController.swift; sourceTree = "<group>"; };
+		C36E16AC24C10650008521C7 /* HeartRateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartRateViewController.xib; sourceTree = "<group>"; };
+		C36E16AE24C107D9008521C7 /* TorchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchManager.swift; sourceTree = "<group>"; };
+		C36E16B024C1768A008521C7 /* VideoSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSessionManager.swift; sourceTree = "<group>"; };
+		C36E16B224C176FE008521C7 /* VideoSessionManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSessionManagerDelegate.swift; sourceTree = "<group>"; };
+		C36E16B424C17D40008521C7 /* UIViewController+nibLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+nibLoaded.swift"; sourceTree = "<group>"; };
 		C3C24E6724BFA77F00CF5B6B /* HeartRateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartRateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C24E6C24BFA77F00CF5B6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C3C24E6E24BFA77F00CF5B6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C3C24E7124BFA77F00CF5B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3C24E7324BFA78200CF5B6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3C24E7624BFA78200CF5B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3C24E7824BFA78200CF5B6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +66,12 @@
 			children = (
 				C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */,
 				C3C24E6C24BFA77F00CF5B6B /* SceneDelegate.swift */,
-				C3C24E6E24BFA77F00CF5B6B /* ViewController.swift */,
-				C3C24E7024BFA77F00CF5B6B /* Main.storyboard */,
+				C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */,
+				C36E16B424C17D40008521C7 /* UIViewController+nibLoaded.swift */,
+				C36E16B024C1768A008521C7 /* VideoSessionManager.swift */,
+				C36E16B224C176FE008521C7 /* VideoSessionManagerDelegate.swift */,
+				C36E16AE24C107D9008521C7 /* TorchManager.swift */,
+				C36E16AC24C10650008521C7 /* HeartRateViewController.xib */,
 				C3C24E7324BFA78200CF5B6B /* Assets.xcassets */,
 				C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */,
 				C3C24E7824BFA78200CF5B6B /* Info.plist */,
@@ -94,7 +106,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Vasile Morari";
 				TargetAttributes = {
 					C3C24E6624BFA77F00CF5B6B = {
@@ -127,7 +139,7 @@
 			files = (
 				C3C24E7724BFA78200CF5B6B /* LaunchScreen.storyboard in Resources */,
 				C3C24E7424BFA78200CF5B6B /* Assets.xcassets in Resources */,
-				C3C24E7224BFA77F00CF5B6B /* Main.storyboard in Resources */,
+				C36E16AD24C10650008521C7 /* HeartRateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C24E6F24BFA77F00CF5B6B /* ViewController.swift in Sources */,
+				C36E16AF24C107D9008521C7 /* TorchManager.swift in Sources */,
+				C36E16B524C17D40008521C7 /* UIViewController+nibLoaded.swift in Sources */,
+				C36E16B324C176FE008521C7 /* VideoSessionManagerDelegate.swift in Sources */,
+				C36E16B124C1768A008521C7 /* VideoSessionManager.swift in Sources */,
+				C36E16AB24C1062D008521C7 /* HeartRateViewController.swift in Sources */,
 				C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */,
 				C3C24E6D24BFA77F00CF5B6B /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +163,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C3C24E7024BFA77F00CF5B6B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C3C24E7124BFA77F00CF5B6B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -192,6 +200,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -252,6 +261,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -284,6 +294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZTW9545CJH;
 				INFOPLIST_FILE = HeartRateApp/Info.plist;
@@ -293,6 +304,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.morarivv.HeartRateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,6 +314,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZTW9545CJH;
 				INFOPLIST_FILE = HeartRateApp/Info.plist;
@@ -311,6 +324,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.morarivv.HeartRateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
