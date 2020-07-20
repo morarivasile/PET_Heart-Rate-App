@@ -53,6 +53,8 @@ extension HeartRatePresenter: VideoSessionManagerDelegate {
         
         luminanceValues.append(luminance)
         
-        view?.updateGraph(with: luminance)
+        DispatchQueue.main.async {
+            self.view?.updateGraph(with: self.luminanceValues)
+        }
     }
 }

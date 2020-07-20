@@ -8,8 +8,13 @@
 
 import UIKit
 import AVFoundation
+import Charts
 
 final class HeartRateViewController: UIViewController {
+    
+    @IBOutlet weak private var lineChartView: LineChartView!
+    
+    private var chartDataEntries: [ChartDataEntry] = []
     
     var presenter: HeartRatePresenterProtocol?
     
@@ -26,7 +31,23 @@ final class HeartRateViewController: UIViewController {
 
 // MARK: - HeartRateViewProtocol
 extension HeartRateViewController: HeartRateViewProtocol {
-    func updateGraph(with luminance: CGFloat) {
-        print(luminance)
+    func updateGraph(with luminanceValues: [CGFloat]) {
+        var values: [ChartDataEntry] = []
+        
+        for (index, value) in luminanceValues.enumerated() {
+            values.append(ChartDataEntry(x: Double(index), y: Double(value)))
+        }
+        
+        let dataSet = LineChartDataSet(entries: values, label: "DataSet 1")
+        
+        dataSet.drawCirclesEnabled = false
+        dataSet.drawCircleHoleEnabled = false
+        dataSet.drawFilledEnabled = false
+        dataSet.mode = .linear //.cubicBezier
+        dataSet.drawValuesEnabled = false
+        dataSet.lineWidth = 2
+        dataSet.setColor(.red)
+        
+        lineChartView.data = LineChartData(dataSet: dataSet)
     }
 }

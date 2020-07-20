@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HeartRateViewProtocol: class {
-    func updateGraph(with luminance: CGFloat)
+    func updateGraph(with luminanceValues: [CGFloat])
 }
 
 protocol HeartRatePresenterProtocol: class {

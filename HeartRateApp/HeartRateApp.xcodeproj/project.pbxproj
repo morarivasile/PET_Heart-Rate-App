@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		C37EB4C324C5DC02004EDFAC /* UIColor+isFingerOnLense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C224C5DC02004EDFAC /* UIColor+isFingerOnLense.swift */; };
 		C37EB4C524C620D2004EDFAC /* UIImage+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C424C620D2004EDFAC /* UIImage+Initializers.swift */; };
 		C37EB4C824C62182004EDFAC /* UIImage+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C724C62181004EDFAC /* UIImage+AverageColor.swift */; };
+		C37EB4CB24C62AE1004EDFAC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C37EB4CA24C62AE1004EDFAC /* Charts */; };
 		C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */; };
 		C3C24E7424BFA78200CF5B6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7324BFA78200CF5B6B /* Assets.xcassets */; };
 		C3C24E7724BFA78200CF5B6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37EB4CB24C62AE1004EDFAC /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +174,9 @@
 			dependencies = (
 			);
 			name = HeartRateApp;
+			packageProductDependencies = (
+				C37EB4CA24C62AE1004EDFAC /* Charts */,
+			);
 			productName = HeartRateApp;
 			productReference = C3C24E6724BFA77F00CF5B6B /* HeartRateApp.app */;
 			productType = "com.apple.product-type.application";
@@ -200,6 +205,9 @@
 				Base,
 			);
 			mainGroup = C3C24E5E24BFA77F00CF5B6B;
+			packageReferences = (
+				C37EB4C924C62AE1004EDFAC /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = C3C24E6824BFA77F00CF5B6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -436,6 +444,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C37EB4C924C62AE1004EDFAC /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C37EB4CA24C62AE1004EDFAC /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C37EB4C924C62AE1004EDFAC /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C3C24E5F24BFA77F00CF5B6B /* Project object */;
 }
