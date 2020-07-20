@@ -1,5 +1,5 @@
 //
-//  UIViewController+nibLoaded.swift
+//  UIViewController+NibLoaded.swift
 //  HeartRateApp
 //
 //  Created by Vasile Morari on 17/07/2020.
@@ -9,7 +9,9 @@
 import UIKit
 
 extension UIViewController {
+    
     class var nibLoaded: Self {
         return Self.init(nibName: String(describing: Self.self), bundle: nil)
     }
+    
 }

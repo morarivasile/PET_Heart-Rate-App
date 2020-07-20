@@ -8,11 +8,14 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 final class HeartRatePresenter {
     
     private var sessionManager: VideoSessionManagerProtocol
     private let torchManager: TorchManagerProtocol
+    
+    private var luminanceValues: [CGFloat] = []
     
     weak var view: HeartRateViewProtocol?
     
@@ -43,6 +46,13 @@ extension HeartRatePresenter: HeartRatePresenterProtocol {
 // MARK: - VideoSessionManagerDelegate
 extension HeartRatePresenter: VideoSessionManagerDelegate {
     func sessionManager(_ sessionManager: VideoSessionManager, didOutput pixelBuffer: CVPixelBuffer) {
-        print("adf")
+        guard let image = UIImage(pixelBuffer: pixelBuffer) else { return }
+        guard let imageAverageColor = image.averageColor else { return }
+        
+        let luminance = imageAverageColor.luminance
+        
+        luminanceValues.append(luminance)
+        
+        view?.updateGraph(with: luminance)
     }
 }

@@ -26,5 +26,7 @@ final class HeartRateViewController: UIViewController {
 
 // MARK: - HeartRateViewProtocol
 extension HeartRateViewController: HeartRateViewProtocol {
-    
+    func updateGraph(with luminance: CGFloat) {
+        print(luminance)
+    }
 }
