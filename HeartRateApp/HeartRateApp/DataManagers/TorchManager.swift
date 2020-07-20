@@ -8,7 +8,13 @@
 
 import AVFoundation
 
-final class TorchManager {
+protocol TorchManagerProtocol {
+    var isTorchEnabled: Bool { get }
+    
+    func toggleTorch(on: Bool) throws
+}
+
+final class TorchManager: TorchManagerProtocol {
     
     private var device: AVCaptureDevice?
     

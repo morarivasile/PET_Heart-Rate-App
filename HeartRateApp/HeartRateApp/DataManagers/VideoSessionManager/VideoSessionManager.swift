@@ -8,7 +8,16 @@
 
 import AVFoundation
 
-final class VideoSessionManager: NSObject {
+protocol VideoSessionManagerProtocol {
+    var isSessionRunning: Bool { get }
+    var delegate: VideoSessionManagerDelegate? { get set }
+    
+    func startSession(completion: ((Bool) -> Void)?)
+    func resumeInterruptedSession(withCompletion completion: @escaping (Bool) -> Void)
+    func stopSession()
+}
+
+final class VideoSessionManager: NSObject, VideoSessionManagerProtocol {
     
     private lazy var captureDevice = AVCaptureDevice.default(for: .video)
     
