@@ -15,7 +15,14 @@ final class HeartRatePresenter {
     private var sessionManager: VideoSessionManagerProtocol
     private let torchManager: TorchManagerProtocol
     
-    private var luminanceValues: [CGFloat] = []
+    private lazy var lenseDetectionTimer: RepeatingTimerWrapperProtocol = RepeatingTimerWrapper(
+        timeInterval: 0.01,
+        totalCount: Constants.lenseTimerTotalInterval,
+        delegate: self,
+        runAction: lenseDetectionTimerAction
+    )
+    
+    private var isFingerDetected: Bool = false
     
     weak var view: HeartRateViewProtocol?
     
@@ -27,17 +34,38 @@ final class HeartRatePresenter {
     }
 }
 
+// MARK: - Private
+extension HeartRatePresenter {
+    private func lenseDetectionTimerAction(time: TimeInterval) {
+        DispatchQueue.main.async {
+            self.view?.setProgress(Float(time / Constants.lenseTimerTotalInterval), animated: true)
+        }
+    }
+    
+    private func stopLenseDetectionTimer(isFingerDetected: Bool) {
+        self.lenseDetectionTimer.stop()
+        self.isFingerDetected = isFingerDetected
+        
+        DispatchQueue.main.async {
+            self.view?.setProgress(0.0, animated: true)
+        }
+    }
+}
+
 // MARK: - HeartRatePresenterProtocol
 extension HeartRatePresenter: HeartRatePresenterProtocol {
     func didTapActionButton() {
         if sessionManager.isSessionRunning {
             sessionManager.stopSession()
             try? torchManager.toggleTorch(on: false)
+            self.view?.updateView(isCameraStarted: false)
         } else {
             sessionManager.startSession { (started) in
                 if started {
                     try? self.torchManager.toggleTorch(on: true)
                 }
+                
+                self.view?.updateView(isCameraStarted: started)
             }
         }
     }
@@ -49,12 +77,26 @@ extension HeartRatePresenter: VideoSessionManagerDelegate {
         guard let image = UIImage(pixelBuffer: pixelBuffer) else { return }
         guard let imageAverageColor = image.averageColor else { return }
         
-        let luminance = imageAverageColor.luminance
-        
-        luminanceValues.append(luminance)
-        
-        DispatchQueue.main.async {
-            self.view?.updateGraph(with: self.luminanceValues)
+        if imageAverageColor.isFingerOnLense {
+            if !lenseDetectionTimer.isStarted && !isFingerDetected {
+                lenseDetectionTimer.start()
+            }
+        } else {
+            stopLenseDetectionTimer(isFingerDetected: false)
         }
+    }
+}
+
+// MARK: - CustomTimerDelegate
+extension HeartRatePresenter: RepeatingTimerWrapperDelegate {
+    func didFinishCounting(_ timer: RepeatingTimerWrapperProtocol) {
+        stopLenseDetectionTimer(isFingerDetected: true)
+    }
+}
+
+// MARK: - Constants
+extension HeartRatePresenter {
+    enum Constants {
+        static let lenseTimerTotalInterval: TimeInterval = 3.0
     }
 }

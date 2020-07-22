@@ -13,6 +13,7 @@ protocol VideoSessionManagerProtocol {
     var delegate: VideoSessionManagerDelegate? { get set }
     
     func startSession(completion: ((Bool) -> Void)?)
+    func setFrameInterval(_ frameInterval: Int)
     func resumeInterruptedSession(withCompletion completion: @escaping (Bool) -> Void)
     func stopSession()
 }

@@ -27,6 +27,8 @@ class MainCoordinator: Coordinator {
         viewController.presenter = presenter
         presenter.view = viewController
         
+        navigationController.isNavigationBarHidden = true
+        
         navigationController.pushViewController(viewController, animated: true)
     }
 }

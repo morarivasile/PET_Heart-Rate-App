@@ -12,17 +12,27 @@ import Charts
 
 final class HeartRateViewController: UIViewController {
     
-    @IBOutlet weak private var lineChartView: LineChartView!
+    // MARK: - IBOutlets
     
-    private var chartDataEntries: [ChartDataEntry] = []
+    @IBOutlet weak private var hintLabel: UILabel!
+    
+    @IBOutlet weak private var progressView: UIProgressView!
+    
+    @IBOutlet weak private var actionButton: CameraButton!
+    
+    // MARK: - Public Properties
     
     var presenter: HeartRatePresenterProtocol?
+    
+    // MARK: - VC lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Camera"
     }
+    
+    // MARK: - IBActions
     
     @IBAction func didTapOnCameraButton(_ sender: UIButton) {
         presenter?.didTapActionButton()
@@ -31,23 +41,12 @@ final class HeartRateViewController: UIViewController {
 
 // MARK: - HeartRateViewProtocol
 extension HeartRateViewController: HeartRateViewProtocol {
-    func updateGraph(with luminanceValues: [CGFloat]) {
-        var values: [ChartDataEntry] = []
-        
-        for (index, value) in luminanceValues.enumerated() {
-            values.append(ChartDataEntry(x: Double(index), y: Double(value)))
-        }
-        
-        let dataSet = LineChartDataSet(entries: values, label: "DataSet 1")
-        
-        dataSet.drawCirclesEnabled = false
-        dataSet.drawCircleHoleEnabled = false
-        dataSet.drawFilledEnabled = false
-        dataSet.mode = .linear //.cubicBezier
-        dataSet.drawValuesEnabled = false
-        dataSet.lineWidth = 2
-        dataSet.setColor(.red)
-        
-        lineChartView.data = LineChartData(dataSet: dataSet)
+    func updateView(isCameraStarted: Bool) {
+        actionButton.cameraState = isCameraStarted ? .started : .stopped
+        hintLabel.isHidden = !isCameraStarted
+    }
+    
+    func setProgress(_ progress: Float, animated: Bool) {
+        progressView.setProgress(progress, animated: false)
     }
 }
