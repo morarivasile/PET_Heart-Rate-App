@@ -29,6 +29,8 @@ final class HeartRateViewController: UIViewController {
     
     @IBOutlet weak private var actionButton: CameraButton!
     
+    @IBOutlet weak private var lineChartView: LineChartView!
+    
     // MARK: - Public Properties
     
     var presenter: HeartRatePresenterProtocol?

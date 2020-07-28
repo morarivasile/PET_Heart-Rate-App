@@ -35,4 +35,5 @@ protocol HeartRateInteractorOutputProtocol: class {
     func didChangeState(_ state: HeartRateViewState)
     func didChangeFingerDetectionProgress(_ progress: Float)
     func didChangePulseDetectionProgress(_ progress: Float)
+    func didChangePulseValues(_ values: [CGFloat])
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class HeartRatePresenter {
     var interactor: HeartRateInteractorProtocol
@@ -57,5 +58,9 @@ extension HeartRatePresenter: HeartRateInteractorOutputProtocol {
         DispatchQueue.main.async {
             self.view?.setPulseDetectionProgress(progress, animated: false)
         }
+    }
+
+    func didChangePulseValues(_ values: [CGFloat]) {
+        print(values)
     }
 }

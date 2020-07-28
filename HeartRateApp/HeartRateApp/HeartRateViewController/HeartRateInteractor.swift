@@ -40,6 +40,14 @@ final class HeartRateInteractor {
     
     private let tickTimeInterval: TimeInterval
     
+    private var pulseValues: [CGFloat] = [] {
+        didSet {
+            if !(oldValue.isEmpty && pulseValues.isEmpty) {
+                output?.didChangePulseValues(pulseValues)
+            }
+        }
+    }
+    
     // MARK: - Delegates
     
     weak var output: HeartRateInteractorOutputProtocol?
@@ -133,7 +141,9 @@ extension HeartRateInteractor: VideoSessionManagerDelegate {
         }
         
         if isDetectingPulse {
-            // Get colors
+            pulseValues.append(imageAverageColor.luminance)
+        } else {
+            pulseValues = []
         }
     }
 }
