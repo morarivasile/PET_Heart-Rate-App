@@ -8,12 +8,11 @@
 
 import Foundation
 
-
 protocol RepeatingTimerWrapperDelegate: class {
     func didFinishCounting(_ timer: RepeatingTimerWrapperProtocol)
 }
 
-protocol RepeatingTimerWrapperProtocol {
+protocol RepeatingTimerWrapperProtocol: Identifiable {
     var isStarted: Bool { get }
     
     func start()
@@ -33,6 +32,8 @@ final class RepeatingTimerWrapper: RepeatingTimerWrapperProtocol {
     private(set) var timeInterval: TimeInterval
     
     private(set) var runCount: TimeInterval = 0
+    
+    var identifier: UUID = UUID()
     
     var isStarted: Bool {
         return runCount != 0

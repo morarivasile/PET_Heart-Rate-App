@@ -15,11 +15,18 @@ final class HeartRatePresenter {
     private var sessionManager: VideoSessionManagerProtocol
     private let torchManager: TorchManagerProtocol
     
-    private lazy var lenseDetectionTimer: RepeatingTimerWrapperProtocol = RepeatingTimerWrapper(
-        timeInterval: 0.01,
-        totalCount: Constants.lenseTimerTotalInterval,
+    private lazy var fingerDetectionTimer: RepeatingTimerWrapperProtocol = RepeatingTimerWrapper(
+        timeInterval: Constants.tickTimeInterval,
+        totalCount: Constants.fingerTimerTotalInterval,
         delegate: self,
-        runAction: lenseDetectionTimerAction
+        runAction: fingerDetectionTimerAction
+    )
+    
+    private lazy var pulseDetectionTimer: RepeatingTimerWrapperProtocol = RepeatingTimerWrapper(
+        timeInterval: Constants.tickTimeInterval,
+        totalCount: Constants.pulseTimerTotalIntervale,
+        delegate: self,
+        runAction: pulseDetectionTimerAction
     )
     
     private var isFingerDetected: Bool = false
@@ -36,18 +43,32 @@ final class HeartRatePresenter {
 
 // MARK: - Private
 extension HeartRatePresenter {
-    private func lenseDetectionTimerAction(time: TimeInterval) {
+    private func fingerDetectionTimerAction(time: TimeInterval) {
         DispatchQueue.main.async {
-            self.view?.setProgress(Float(time / Constants.lenseTimerTotalInterval), animated: true)
+            self.view?.setFingerDetectionProgress(Float(time / Constants.fingerTimerTotalInterval), animated: false)
         }
     }
     
-    private func stopLenseDetectionTimer(isFingerDetected: Bool) {
-        self.lenseDetectionTimer.stop()
+    private func pulseDetectionTimerAction(time: TimeInterval) {
+        DispatchQueue.main.async {
+            self.view?.setPulseDetectionProgress(Float(time / Constants.pulseTimerTotalIntervale), animated: false)
+        }
+    }
+    
+    private func stopFingerDetectionTimer(isFingerDetected: Bool) {
+        self.fingerDetectionTimer.stop()
         self.isFingerDetected = isFingerDetected
         
         DispatchQueue.main.async {
-            self.view?.setProgress(0.0, animated: true)
+            self.view?.setFingerDetectionProgress(0.0, animated: false)
+        }
+    }
+    
+    private func stopPulseDetectionTimer() {
+        self.pulseDetectionTimer.stop()
+        
+        DispatchQueue.main.async {
+            self.view?.setPulseDetectionProgress(0.0, animated: false)
         }
     }
 }
@@ -58,7 +79,9 @@ extension HeartRatePresenter: HeartRatePresenterProtocol {
         if sessionManager.isSessionRunning {
             sessionManager.stopSession()
             try? torchManager.toggleTorch(on: false)
-            self.view?.updateView(isCameraStarted: false)
+            view?.updateView(isCameraStarted: false)
+            stopFingerDetectionTimer(isFingerDetected: false)
+            stopPulseDetectionTimer()
         } else {
             sessionManager.startSession { (started) in
                 if started {
@@ -78,11 +101,12 @@ extension HeartRatePresenter: VideoSessionManagerDelegate {
         guard let imageAverageColor = image.averageColor else { return }
         
         if imageAverageColor.isFingerOnLense {
-            if !lenseDetectionTimer.isStarted && !isFingerDetected {
-                lenseDetectionTimer.start()
+            if !fingerDetectionTimer.isStarted && !isFingerDetected {
+                fingerDetectionTimer.start()
             }
         } else {
-            stopLenseDetectionTimer(isFingerDetected: false)
+            stopFingerDetectionTimer(isFingerDetected: false)
+            stopPulseDetectionTimer()
         }
     }
 }
@@ -90,13 +114,23 @@ extension HeartRatePresenter: VideoSessionManagerDelegate {
 // MARK: - CustomTimerDelegate
 extension HeartRatePresenter: RepeatingTimerWrapperDelegate {
     func didFinishCounting(_ timer: RepeatingTimerWrapperProtocol) {
-        stopLenseDetectionTimer(isFingerDetected: true)
+        switch timer.identifier {
+        case fingerDetectionTimer.identifier:
+            stopFingerDetectionTimer(isFingerDetected: true)
+            pulseDetectionTimer.start()
+        case pulseDetectionTimer.identifier:
+            print("finish")
+        default:
+            return
+        }
     }
 }
 
 // MARK: - Constants
 extension HeartRatePresenter {
     enum Constants {
-        static let lenseTimerTotalInterval: TimeInterval = 3.0
+        static let fingerTimerTotalInterval: TimeInterval = 3.0
+        static let pulseTimerTotalIntervale: TimeInterval = 10.0
+        static let tickTimeInterval: TimeInterval = 0.01
     }
 }

@@ -22,6 +22,7 @@
 		C37EB4C524C620D2004EDFAC /* UIImage+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C424C620D2004EDFAC /* UIImage+Initializers.swift */; };
 		C37EB4C824C62182004EDFAC /* UIImage+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C724C62181004EDFAC /* UIImage+AverageColor.swift */; };
 		C37EB4CB24C62AE1004EDFAC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C37EB4CA24C62AE1004EDFAC /* Charts */; };
+		C38DA6CD24D0072100F09B34 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DA6CC24D0072100F09B34 /* Identifiable.swift */; };
 		C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */; };
 		C3C24E7424BFA78200CF5B6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7324BFA78200CF5B6B /* Assets.xcassets */; };
 		C3C24E7724BFA78200CF5B6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 		C37EB4C224C5DC02004EDFAC /* UIColor+isFingerOnLense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+isFingerOnLense.swift"; sourceTree = "<group>"; };
 		C37EB4C424C620D2004EDFAC /* UIImage+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Initializers.swift"; sourceTree = "<group>"; };
 		C37EB4C724C62181004EDFAC /* UIImage+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AverageColor.swift"; sourceTree = "<group>"; };
+		C38DA6CC24D0072100F09B34 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		C3C24E6724BFA77F00CF5B6B /* HeartRateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartRateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C24E7324BFA78200CF5B6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			path = UIImage;
 			sourceTree = "<group>";
 		};
+		C38DA6CB24D0071300F09B34 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C38DA6CC24D0072100F09B34 /* Identifiable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		C3C24E5E24BFA77F00CF5B6B = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		C3C24E6924BFA77F00CF5B6B /* HeartRateApp */ = {
 			isa = PBXGroup;
 			children = (
+				C38DA6CB24D0071300F09B34 /* Protocols */,
 				C37EB4BA24C5D6F9004EDFAC /* Cordinators */,
 				C36E16B824C17F31008521C7 /* DataManagers */,
 				C36E16B724C17F1E008521C7 /* Extensions */,
@@ -273,6 +284,7 @@
 				C36E16B124C1768A008521C7 /* VideoSessionManager.swift in Sources */,
 				C37EB4C124C5DBA6004EDFAC /* UIColor+luminance.swift in Sources */,
 				C3FC87C924C811C6005CBDD1 /* CameraButton.swift in Sources */,
+				C38DA6CD24D0072100F09B34 /* Identifiable.swift in Sources */,
 				C36E16AB24C1062D008521C7 /* HeartRateViewController.swift in Sources */,
 				C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */,
 				C37EB4C324C5DC02004EDFAC /* UIColor+isFingerOnLense.swift in Sources */,
@@ -416,7 +428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZTW9545CJH;
+				DEVELOPMENT_TEAM = TX8377YQ35;
 				INFOPLIST_FILE = HeartRateApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

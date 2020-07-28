@@ -9,9 +9,10 @@
 import UIKit
 
 protocol HeartRateViewProtocol: class {
-//    func updateGraph(with luminanceValues: [CGFloat])
     func updateView(isCameraStarted: Bool)
-    func setProgress(_ progress: Float, animated: Bool)
+    
+    func setFingerDetectionProgress(_ progress: Float, animated: Bool)
+    func setPulseDetectionProgress(_ progress: Float, animated: Bool)
 }
 
 protocol HeartRatePresenterProtocol: class {

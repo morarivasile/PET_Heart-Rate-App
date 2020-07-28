@@ -12,6 +12,8 @@ import Charts
 
 final class HeartRateViewController: UIViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak private var hintLabel: UILabel!
@@ -46,7 +48,13 @@ extension HeartRateViewController: HeartRateViewProtocol {
         hintLabel.isHidden = !isCameraStarted
     }
     
-    func setProgress(_ progress: Float, animated: Bool) {
-        progressView.setProgress(progress, animated: false)
+    func setFingerDetectionProgress(_ progress: Float, animated: Bool) {
+        progressView.progressTintColor = .systemIndigo
+        progressView.setProgress(progress, animated: animated)
+    }
+    
+    func setPulseDetectionProgress(_ progress: Float, animated: Bool) {
+        progressView.progressTintColor = .systemPink
+        progressView.setProgress(progress, animated: animated)
     }
 }
