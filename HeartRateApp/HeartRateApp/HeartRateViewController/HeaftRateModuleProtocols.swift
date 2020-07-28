@@ -16,5 +16,9 @@ protocol HeartRateViewProtocol: class {
 }
 
 protocol HeartRatePresenterProtocol: class {
+    var isDetectingPulse: Bool { get }
+    var isDetectingFinger: Bool { get }
+    var isFingerDetected: Bool { get }
+    
     func didTapActionButton()
 }

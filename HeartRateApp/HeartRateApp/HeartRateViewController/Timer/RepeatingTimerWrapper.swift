@@ -9,6 +9,7 @@
 import Foundation
 
 protocol RepeatingTimerWrapperDelegate: class {
+    func didIterate(interval: TimeInterval, timer: RepeatingTimerWrapperProtocol)
     func didFinishCounting(_ timer: RepeatingTimerWrapperProtocol)
 }
 
@@ -25,8 +26,6 @@ final class RepeatingTimerWrapper: RepeatingTimerWrapperProtocol {
     
     private(set) lazy var timer: RepeatingTimer = RepeatingTimer(timeInterval: timeInterval)
     
-    private(set) var runAction: RunAction?
-    
     private(set) var totalCount: TimeInterval
     
     private(set) var timeInterval: TimeInterval
@@ -41,9 +40,8 @@ final class RepeatingTimerWrapper: RepeatingTimerWrapperProtocol {
     
     weak var delegate: RepeatingTimerWrapperDelegate?
     
-    init(timeInterval: TimeInterval = 1.0, totalCount: TimeInterval, delegate: RepeatingTimerWrapperDelegate? = nil, runAction: RunAction?) {
+    init(timeInterval: TimeInterval = 1.0, totalCount: TimeInterval, delegate: RepeatingTimerWrapperDelegate? = nil) {
         self.totalCount = totalCount
-        self.runAction = runAction
         self.delegate = delegate
         self.timeInterval = timeInterval
         
@@ -67,6 +65,6 @@ final class RepeatingTimerWrapper: RepeatingTimerWrapperProtocol {
             stop()
         }
         
-        runAction?(runCount)
+        delegate?.didIterate(interval: runCount, timer: self)
     }
 }
