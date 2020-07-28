@@ -24,6 +24,7 @@
 		C37EB4CB24C62AE1004EDFAC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C37EB4CA24C62AE1004EDFAC /* Charts */; };
 		C38DA6CD24D0072100F09B34 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DA6CC24D0072100F09B34 /* Identifiable.swift */; };
 		C38DA6CF24D00F1600F09B34 /* CVPixelBuffer+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DA6CE24D00F1600F09B34 /* CVPixelBuffer+AverageColor.swift */; };
+		C38DA6D124D0303200F09B34 /* HeartRateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DA6D024D0303200F09B34 /* HeartRateInteractor.swift */; };
 		C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */; };
 		C3C24E7424BFA78200CF5B6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7324BFA78200CF5B6B /* Assets.xcassets */; };
 		C3C24E7724BFA78200CF5B6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */; };
@@ -49,6 +50,7 @@
 		C37EB4C724C62181004EDFAC /* UIImage+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AverageColor.swift"; sourceTree = "<group>"; };
 		C38DA6CC24D0072100F09B34 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		C38DA6CE24D00F1600F09B34 /* CVPixelBuffer+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+AverageColor.swift"; sourceTree = "<group>"; };
+		C38DA6D024D0303200F09B34 /* HeartRateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateInteractor.swift; sourceTree = "<group>"; };
 		C3C24E6724BFA77F00CF5B6B /* HeartRateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartRateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C24E7324BFA78200CF5B6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */,
 				C36E16AC24C10650008521C7 /* HeartRateViewController.xib */,
 				C323BC1F24C239A900FAC1CF /* HeartRatePresenter.swift */,
+				C38DA6D024D0303200F09B34 /* HeartRateInteractor.swift */,
 				C323BC2124C23BF200FAC1CF /* HeaftRateModuleProtocols.swift */,
 			);
 			path = HeartRateViewController;
@@ -281,6 +284,7 @@
 				C3FC87C424C7F922005CBDD1 /* RepeatingTimer.swift in Sources */,
 				C36E16B324C176FE008521C7 /* VideoSessionManagerDelegate.swift in Sources */,
 				C37EB4BE24C5D713004EDFAC /* MainCoordinator.swift in Sources */,
+				C38DA6D124D0303200F09B34 /* HeartRateInteractor.swift in Sources */,
 				C3FC87C624C7F98E005CBDD1 /* RepeatingTimerWrapper.swift in Sources */,
 				C323BC2024C239A900FAC1CF /* HeartRatePresenter.swift in Sources */,
 				C37EB4C524C620D2004EDFAC /* UIImage+Initializers.swift in Sources */,

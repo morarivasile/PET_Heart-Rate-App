@@ -15,7 +15,7 @@ protocol VideoSessionManagerProtocol {
     func startSession(completion: ((Bool) -> Void)?)
     func setFrameInterval(_ frameInterval: Int)
     func resumeInterruptedSession(withCompletion completion: @escaping (Bool) -> Void)
-    func stopSession()
+    func stopSession(completion: (() -> Void)?)
 }
 
 final class VideoSessionManager: NSObject, VideoSessionManagerProtocol {
@@ -98,11 +98,13 @@ extension VideoSessionManager {
     /**
      This method stops a running an AVCaptureSession.
      */
-    func stopSession() {
+    func stopSession(completion: (() -> Void)?) {
         removeObservers()
         sessionQueue.async {
             if self.captureSession?.isRunning ?? false {
                 self.captureSession?.stopRunning()
+                
+                completion?()
             }
         }
     }

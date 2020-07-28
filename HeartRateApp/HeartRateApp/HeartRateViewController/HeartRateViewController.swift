@@ -10,6 +10,13 @@ import UIKit
 import AVFoundation
 import Charts
 
+enum HeartRateViewState {
+    case started
+    case stopped
+    case detectingFinger
+    case detectingPulse
+}
+
 final class HeartRateViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
@@ -26,12 +33,17 @@ final class HeartRateViewController: UIViewController {
     
     var presenter: HeartRatePresenterProtocol?
     
+    var state: HeartRateViewState = .stopped {
+        didSet { updateView() }
+    }
+    
     // MARK: - VC lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Camera"
+        updateView()
     }
     
     // MARK: - IBActions
@@ -41,11 +53,39 @@ final class HeartRateViewController: UIViewController {
     }
 }
 
+// MARK: - Private
+extension HeartRateViewController {
+    private func updateView() {
+        switch state {
+        case .started:
+            hintLabel.isHidden = false
+            hintLabel.text = "To start counting the heart rate place lightly the finger tip on camera lens"
+            actionButton.cameraState = .started
+            
+            setFingerDetectionProgress(0.0, animated: false)
+            setPulseDetectionProgress(0.0, animated: false)
+        case .stopped:
+            hintLabel.isHidden = true
+            actionButton.cameraState = .stopped
+            
+            setFingerDetectionProgress(0.0, animated: false)
+            setPulseDetectionProgress(0.0, animated: false)
+        case .detectingFinger:
+            hintLabel.isHidden = false
+            hintLabel.text = "Detecting your pulse, please wait..."
+            actionButton.cameraState = .started
+        case .detectingPulse:
+            hintLabel.isHidden = false
+            hintLabel.text = "Counting heart rate, please keep holding the finger on camera lens"
+            actionButton.cameraState = .started
+        }
+    }
+}
+
 // MARK: - HeartRateViewProtocol
 extension HeartRateViewController: HeartRateViewProtocol {
-    func updateView(isCameraStarted: Bool) {
-        actionButton.cameraState = isCameraStarted ? .started : .stopped
-        hintLabel.isHidden = !isCameraStarted
+    func setActionButtonInteraction(_ isEnabled: Bool) {
+        actionButton.isEnabled = isEnabled
     }
     
     func setFingerDetectionProgress(_ progress: Float, animated: Bool) {

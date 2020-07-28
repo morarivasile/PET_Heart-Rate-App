@@ -19,16 +19,23 @@ class MainCoordinator: Coordinator {
     func start() {
         let viewController = HeartRateViewController.nibLoaded
         
-        let presenter = HeartRatePresenter(
+        let interactor = HeartRateInteractor(
             sessionManager: VideoSessionManager(),
-            torchManager: TorchManager()
+            torchManager: TorchManager(),
+            fingerTimerTotalInterval: 3.0,
+            pulseTimerTotalInterval: 10.0,
+            tickTimeInterval: 0.01
+        )
+        
+        let presenter = HeartRatePresenter(
+            interactor: interactor,
+            view: viewController
         )
         
         viewController.presenter = presenter
-        presenter.view = viewController
+        interactor.output = presenter
         
         navigationController.isNavigationBarHidden = true
-        
         navigationController.pushViewController(viewController, animated: true)
     }
 }
