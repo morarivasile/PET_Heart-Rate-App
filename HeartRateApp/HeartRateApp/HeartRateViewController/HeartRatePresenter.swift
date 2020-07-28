@@ -8,7 +8,6 @@
 
 import Foundation
 import AVFoundation
-import UIKit
 
 final class HeartRatePresenter {
     
@@ -97,8 +96,7 @@ extension HeartRatePresenter: HeartRatePresenterProtocol {
 // MARK: - VideoSessionManagerDelegate
 extension HeartRatePresenter: VideoSessionManagerDelegate {
     func sessionManager(_ sessionManager: VideoSessionManager, didOutput pixelBuffer: CVPixelBuffer) {
-        guard let image = UIImage(pixelBuffer: pixelBuffer) else { return }
-        guard let imageAverageColor = image.averageColor else { return }
+        guard let imageAverageColor = pixelBuffer.averageColor else { return }
         
         if imageAverageColor.isFingerOnLense {
             if !fingerDetectionTimer.isStarted && !isFingerDetected {
@@ -107,6 +105,10 @@ extension HeartRatePresenter: VideoSessionManagerDelegate {
         } else {
             stopFingerDetectionTimer(isFingerDetected: false)
             stopPulseDetectionTimer()
+        }
+        
+        if pulseDetectionTimer.isStarted {
+            // Get colors
         }
     }
 }
@@ -119,7 +121,7 @@ extension HeartRatePresenter: RepeatingTimerWrapperDelegate {
             stopFingerDetectionTimer(isFingerDetected: true)
             pulseDetectionTimer.start()
         case pulseDetectionTimer.identifier:
-            print("finish")
+            stopPulseDetectionTimer()
         default:
             return
         }
