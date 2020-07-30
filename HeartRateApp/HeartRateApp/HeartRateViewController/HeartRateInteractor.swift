@@ -16,6 +16,12 @@ final class HeartRateInteractor {
     private var sessionManager: VideoSessionManagerProtocol
     private let torchManager: TorchManagerProtocol
     
+    private lazy var peakDetector: PeakDetector = {
+        let detector = PeakDetector()
+        detector.delegate = self
+        return detector
+    }()
+    
     // MARK: - Timers
     
     private lazy var fingerDetectionTimer: RepeatingTimerWrapperProtocol = RepeatingTimerWrapper(
@@ -142,6 +148,8 @@ extension HeartRateInteractor: VideoSessionManagerDelegate {
         
         if isDetectingPulse {
             pulseValues.append(imageAverageColor.luminance)
+            
+            peakDetector.addValueToAnalyze(Double(imageAverageColor.luminance))
         } else {
             pulseValues = []
         }
@@ -173,5 +181,16 @@ extension HeartRateInteractor: RepeatingTimerWrapperDelegate {
         default:
             return
         }
+    }
+}
+
+// MARK: - PeakDetectorDelegate
+extension HeartRateInteractor: PeakDetectorDelegate {
+    func peakDetector(_ detector: PeakDetector, didDetectPeakOfValue peakValue: Double, peakJump: Double) {
+        
+    }
+    
+    func peakDetector(_ detector: PeakDetector, didPerceiveHeartRate heartRate: Double) {
+        print(heartRate)
     }
 }

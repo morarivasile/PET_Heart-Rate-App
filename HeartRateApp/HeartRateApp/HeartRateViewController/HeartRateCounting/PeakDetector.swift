@@ -57,10 +57,9 @@ final class PeakDetector {
 extension PeakDetector {
     
     private func collectHistory() {
-        var currentInterval: TimeInterval = 0.0
         
         if let lastPeakDate = lastPeakDate, isCollectingHistory {
-            currentInterval = abs(lastPeakDate.timeIntervalSinceNow)
+            let currentInterval = abs(lastPeakDate.timeIntervalSinceNow)
             
             let percentDifference = percentOfDifferenceBetween(
                 firstArg: lastInterval,
@@ -108,8 +107,8 @@ extension PeakDetector {
 extension PeakDetector {
     enum Constants {
         static let maxPercentOfDifference: Double = 25.0
-        static let minPossibleRate: Double = 200.0
-        static let maxPossibleRate: Double = 25.0
+        static let minPossibleRate: Double = 25.0
+        static let maxPossibleRate: Double = 200.0
         static let intervalsToAnalyze: Int = 2
     }
 }
