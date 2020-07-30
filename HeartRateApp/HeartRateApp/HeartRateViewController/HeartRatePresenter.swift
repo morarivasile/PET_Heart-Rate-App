@@ -59,8 +59,10 @@ extension HeartRatePresenter: HeartRateInteractorOutputProtocol {
             self.view?.setPulseDetectionProgress(progress, animated: false)
         }
     }
-
+    
     func didChangePulseValues(_ values: [CGFloat]) {
-        print(values)
+        DispatchQueue.main.async {
+            self.view?.updateChart(values: values)
+        }
     }
 }

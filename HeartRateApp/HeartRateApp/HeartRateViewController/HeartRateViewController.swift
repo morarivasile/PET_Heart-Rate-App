@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import Charts
 
 enum HeartRateViewState {
     case started
@@ -29,7 +28,7 @@ final class HeartRateViewController: UIViewController {
     
     @IBOutlet weak private var actionButton: CameraButton!
     
-    @IBOutlet weak private var lineChartView: LineChartView!
+    @IBOutlet weak private var lineChartView: UIView!
     
     // MARK: - Public Properties
     
@@ -98,5 +97,9 @@ extension HeartRateViewController: HeartRateViewProtocol {
     func setPulseDetectionProgress(_ progress: Float, animated: Bool) {
         progressView.progressTintColor = .systemPink
         progressView.setProgress(progress, animated: animated)
+    }
+    
+    func updateChart(values: [CGFloat]) {
+        
     }
 }

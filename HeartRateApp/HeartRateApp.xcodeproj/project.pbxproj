@@ -3,12 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C323BC2024C239A900FAC1CF /* HeartRatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C323BC1F24C239A900FAC1CF /* HeartRatePresenter.swift */; };
 		C323BC2224C23BF200FAC1CF /* HeaftRateModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C323BC2124C23BF200FAC1CF /* HeaftRateModuleProtocols.swift */; };
+		C3380E9C24D29BE500BEB972 /* LowPassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3380E9924D29BE500BEB972 /* LowPassFilter.swift */; };
+		C3380E9D24D29BE500BEB972 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3380E9A24D29BE500BEB972 /* Filter.swift */; };
+		C3380E9E24D29BE500BEB972 /* HighPassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3380E9B24D29BE500BEB972 /* HighPassFilter.swift */; };
+		C3380EA024D29BEF00BEB972 /* PeakDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3380E9F24D29BEF00BEB972 /* PeakDetector.swift */; };
 		C36E16AB24C1062D008521C7 /* HeartRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */; };
 		C36E16AD24C10650008521C7 /* HeartRateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36E16AC24C10650008521C7 /* HeartRateViewController.xib */; };
 		C36E16AF24C107D9008521C7 /* TorchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16AE24C107D9008521C7 /* TorchManager.swift */; };
@@ -21,7 +25,6 @@
 		C37EB4C324C5DC02004EDFAC /* UIColor+isFingerOnLense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C224C5DC02004EDFAC /* UIColor+isFingerOnLense.swift */; };
 		C37EB4C524C620D2004EDFAC /* UIImage+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C424C620D2004EDFAC /* UIImage+Initializers.swift */; };
 		C37EB4C824C62182004EDFAC /* UIImage+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C724C62181004EDFAC /* UIImage+AverageColor.swift */; };
-		C37EB4CB24C62AE1004EDFAC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C37EB4CA24C62AE1004EDFAC /* Charts */; };
 		C38DA6CD24D0072100F09B34 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DA6CC24D0072100F09B34 /* Identifiable.swift */; };
 		C38DA6CF24D00F1600F09B34 /* CVPixelBuffer+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DA6CE24D00F1600F09B34 /* CVPixelBuffer+AverageColor.swift */; };
 		C38DA6D124D0303200F09B34 /* HeartRateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DA6D024D0303200F09B34 /* HeartRateInteractor.swift */; };
@@ -36,6 +39,10 @@
 /* Begin PBXFileReference section */
 		C323BC1F24C239A900FAC1CF /* HeartRatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatePresenter.swift; sourceTree = "<group>"; };
 		C323BC2124C23BF200FAC1CF /* HeaftRateModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaftRateModuleProtocols.swift; sourceTree = "<group>"; };
+		C3380E9924D29BE500BEB972 /* LowPassFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPassFilter.swift; sourceTree = "<group>"; };
+		C3380E9A24D29BE500BEB972 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		C3380E9B24D29BE500BEB972 /* HighPassFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPassFilter.swift; sourceTree = "<group>"; };
+		C3380E9F24D29BEF00BEB972 /* PeakDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeakDetector.swift; sourceTree = "<group>"; };
 		C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateViewController.swift; sourceTree = "<group>"; };
 		C36E16AC24C10650008521C7 /* HeartRateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartRateViewController.xib; sourceTree = "<group>"; };
 		C36E16AE24C107D9008521C7 /* TorchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchManager.swift; sourceTree = "<group>"; };
@@ -66,16 +73,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C37EB4CB24C62AE1004EDFAC /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3380E9724D29BCF00BEB972 /* HeartRateCounting */ = {
+			isa = PBXGroup;
+			children = (
+				C3380E9824D29BD800BEB972 /* Filters */,
+				C3380E9F24D29BEF00BEB972 /* PeakDetector.swift */,
+			);
+			path = HeartRateCounting;
+			sourceTree = "<group>";
+		};
+		C3380E9824D29BD800BEB972 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				C3380E9A24D29BE500BEB972 /* Filter.swift */,
+				C3380E9B24D29BE500BEB972 /* HighPassFilter.swift */,
+				C3380E9924D29BE500BEB972 /* LowPassFilter.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
 		C36E16B624C17F0C008521C7 /* HeartRateViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C3380E9724D29BCF00BEB972 /* HeartRateCounting */,
 				C3FC87C724C811B0005CBDD1 /* View */,
 				C3FC87C224C7F8E9005CBDD1 /* Timer */,
 				C36E16AA24C1062D008521C7 /* HeartRateViewController.swift */,
@@ -217,7 +243,6 @@
 			);
 			name = HeartRateApp;
 			packageProductDependencies = (
-				C37EB4CA24C62AE1004EDFAC /* Charts */,
 			);
 			productName = HeartRateApp;
 			productReference = C3C24E6724BFA77F00CF5B6B /* HeartRateApp.app */;
@@ -248,7 +273,6 @@
 			);
 			mainGroup = C3C24E5E24BFA77F00CF5B6B;
 			packageReferences = (
-				C37EB4C924C62AE1004EDFAC /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = C3C24E6824BFA77F00CF5B6B /* Products */;
 			projectDirPath = "";
@@ -285,13 +309,17 @@
 				C36E16B324C176FE008521C7 /* VideoSessionManagerDelegate.swift in Sources */,
 				C37EB4BE24C5D713004EDFAC /* MainCoordinator.swift in Sources */,
 				C38DA6D124D0303200F09B34 /* HeartRateInteractor.swift in Sources */,
+				C3380EA024D29BEF00BEB972 /* PeakDetector.swift in Sources */,
 				C3FC87C624C7F98E005CBDD1 /* RepeatingTimerWrapper.swift in Sources */,
 				C323BC2024C239A900FAC1CF /* HeartRatePresenter.swift in Sources */,
 				C37EB4C524C620D2004EDFAC /* UIImage+Initializers.swift in Sources */,
 				C38DA6CF24D00F1600F09B34 /* CVPixelBuffer+AverageColor.swift in Sources */,
 				C36E16B124C1768A008521C7 /* VideoSessionManager.swift in Sources */,
+				C3380E9D24D29BE500BEB972 /* Filter.swift in Sources */,
 				C37EB4C124C5DBA6004EDFAC /* UIColor+luminance.swift in Sources */,
 				C3FC87C924C811C6005CBDD1 /* CameraButton.swift in Sources */,
+				C3380E9C24D29BE500BEB972 /* LowPassFilter.swift in Sources */,
+				C3380E9E24D29BE500BEB972 /* HighPassFilter.swift in Sources */,
 				C38DA6CD24D0072100F09B34 /* Identifiable.swift in Sources */,
 				C36E16AB24C1062D008521C7 /* HeartRateViewController.swift in Sources */,
 				C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */,
@@ -492,25 +520,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C37EB4C924C62AE1004EDFAC /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C37EB4CA24C62AE1004EDFAC /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C37EB4C924C62AE1004EDFAC /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C3C24E5F24BFA77F00CF5B6B /* Project object */;
 }

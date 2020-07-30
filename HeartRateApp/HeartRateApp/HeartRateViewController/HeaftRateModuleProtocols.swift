@@ -15,6 +15,7 @@ protocol HeartRateViewProtocol: class {
     
     func setFingerDetectionProgress(_ progress: Float, animated: Bool)
     func setPulseDetectionProgress(_ progress: Float, animated: Bool)
+    func updateChart(values: [CGFloat])
 }
 
 protocol HeartRatePresenterProtocol: class {
