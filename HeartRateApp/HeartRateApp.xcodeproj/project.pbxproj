@@ -34,7 +34,18 @@
 		C3FC87C424C7F922005CBDD1 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC87C324C7F922005CBDD1 /* RepeatingTimer.swift */; };
 		C3FC87C624C7F98E005CBDD1 /* RepeatingTimerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC87C524C7F98E005CBDD1 /* RepeatingTimerWrapper.swift */; };
 		C3FC87C924C811C6005CBDD1 /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FC87C824C811C6005CBDD1 /* CameraButton.swift */; };
+		C3FCA60724E92CCE00B09EC6 /* HeartRateAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FCA60624E92CCE00B09EC6 /* HeartRateAppTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3FCA60924E92CCE00B09EC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3C24E5F24BFA77F00CF5B6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3C24E6624BFA77F00CF5B6B;
+			remoteInfo = HeartRateApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C323BC1F24C239A900FAC1CF /* HeartRatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatePresenter.swift; sourceTree = "<group>"; };
@@ -66,10 +77,20 @@
 		C3FC87C324C7F922005CBDD1 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		C3FC87C524C7F98E005CBDD1 /* RepeatingTimerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimerWrapper.swift; sourceTree = "<group>"; };
 		C3FC87C824C811C6005CBDD1 /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
+		C3FCA60424E92CCE00B09EC6 /* HeartRateAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeartRateAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3FCA60624E92CCE00B09EC6 /* HeartRateAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateAppTests.swift; sourceTree = "<group>"; };
+		C3FCA60824E92CCE00B09EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C3C24E6424BFA77F00CF5B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3FCA60124E92CCE00B09EC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -172,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C24E6924BFA77F00CF5B6B /* HeartRateApp */,
+				C3FCA60524E92CCE00B09EC6 /* HeartRateAppTests */,
 				C3C24E6824BFA77F00CF5B6B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -180,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C24E6724BFA77F00CF5B6B /* HeartRateApp.app */,
+				C3FCA60424E92CCE00B09EC6 /* HeartRateAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +240,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C3FCA60524E92CCE00B09EC6 /* HeartRateAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3FCA60624E92CCE00B09EC6 /* HeartRateAppTests.swift */,
+				C3FCA60824E92CCE00B09EC6 /* Info.plist */,
+			);
+			path = HeartRateAppTests;
+			sourceTree = "<group>";
+		};
 		C3FF1ADA24C17FA000B8FC52 /* VideoSessionManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,18 +280,40 @@
 			productReference = C3C24E6724BFA77F00CF5B6B /* HeartRateApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C3FCA60324E92CCE00B09EC6 /* HeartRateAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3FCA60D24E92CCE00B09EC6 /* Build configuration list for PBXNativeTarget "HeartRateAppTests" */;
+			buildPhases = (
+				C3FCA60024E92CCE00B09EC6 /* Sources */,
+				C3FCA60124E92CCE00B09EC6 /* Frameworks */,
+				C3FCA60224E92CCE00B09EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3FCA60A24E92CCE00B09EC6 /* PBXTargetDependency */,
+			);
+			name = HeartRateAppTests;
+			productName = HeartRateAppTests;
+			productReference = C3FCA60424E92CCE00B09EC6 /* HeartRateAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C3C24E5F24BFA77F00CF5B6B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Vasile Morari";
 				TargetAttributes = {
 					C3C24E6624BFA77F00CF5B6B = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					C3FCA60324E92CCE00B09EC6 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = C3C24E6624BFA77F00CF5B6B;
 					};
 				};
 			};
@@ -279,6 +333,7 @@
 			projectRoot = "";
 			targets = (
 				C3C24E6624BFA77F00CF5B6B /* HeartRateApp */,
+				C3FCA60324E92CCE00B09EC6 /* HeartRateAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +346,13 @@
 				C3C24E7724BFA78200CF5B6B /* LaunchScreen.storyboard in Resources */,
 				C3C24E7424BFA78200CF5B6B /* Assets.xcassets in Resources */,
 				C36E16AD24C10650008521C7 /* HeartRateViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3FCA60224E92CCE00B09EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +390,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3FCA60024E92CCE00B09EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FCA60724E92CCE00B09EC6 /* HeartRateAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3FCA60A24E92CCE00B09EC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3C24E6624BFA77F00CF5B6B /* HeartRateApp */;
+			targetProxy = C3FCA60924E92CCE00B09EC6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */ = {
@@ -498,6 +576,48 @@
 			};
 			name = Release;
 		};
+		C3FCA60B24E92CCE00B09EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX8377YQ35;
+				INFOPLIST_FILE = HeartRateAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = self.morarivv.HeartRateAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartRateApp.app/HeartRateApp";
+			};
+			name = Debug;
+		};
+		C3FCA60C24E92CCE00B09EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX8377YQ35;
+				INFOPLIST_FILE = HeartRateAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = self.morarivv.HeartRateAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartRateApp.app/HeartRateApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -515,6 +635,15 @@
 			buildConfigurations = (
 				C3C24E7C24BFA78200CF5B6B /* Debug */,
 				C3C24E7D24BFA78200CF5B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3FCA60D24E92CCE00B09EC6 /* Build configuration list for PBXNativeTarget "HeartRateAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3FCA60B24E92CCE00B09EC6 /* Debug */,
+				C3FCA60C24E92CCE00B09EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
