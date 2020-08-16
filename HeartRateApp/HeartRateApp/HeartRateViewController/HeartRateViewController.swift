@@ -24,6 +24,8 @@ final class HeartRateViewController: UIViewController {
     
     @IBOutlet weak private var hintLabel: UILabel!
     
+    @IBOutlet weak private var heartBeatRateLabel: UILabel!
+    
     @IBOutlet weak private var progressView: UIProgressView!
     
     @IBOutlet weak private var actionButton: CameraButton!
@@ -36,6 +38,30 @@ final class HeartRateViewController: UIViewController {
     
     var state: HeartRateViewState = .stopped {
         didSet { updateView() }
+    }
+
+    // MARK: - Private Properties
+    
+    private var hint: String? {
+        switch state {
+        case .started:
+            return "To start counting the heart rate place lightly the finger tip on camera lens"
+        case .stopped:
+            return nil
+        case .detectingFinger:
+            return "Detecting your pulse, please wait..."
+        case .detectingPulse:
+            return "Counting heart rate, please keep holding the finger on camera lens"
+        }
+    }
+    
+    private var actionButtonState: CameraButton.CameraState {
+        switch state {
+        case .started, .detectingFinger, .detectingPulse:
+            return .started
+        case .stopped:
+            return .stopped
+        }
     }
     
     // MARK: - VC lifecycle
@@ -57,28 +83,17 @@ final class HeartRateViewController: UIViewController {
 // MARK: - Private
 extension HeartRateViewController {
     private func updateView() {
+        
+        hintLabel.text = hint
+        hintLabel.isHidden = hint == nil
+        
+        actionButton.cameraState = actionButtonState
+        
         switch state {
-        case .started:
-            hintLabel.isHidden = false
-            hintLabel.text = "To start counting the heart rate place lightly the finger tip on camera lens"
-            actionButton.cameraState = .started
-            
+        case .started, .stopped:
             setFingerDetectionProgress(0.0, animated: false)
             setPulseDetectionProgress(0.0, animated: false)
-        case .stopped:
-            hintLabel.isHidden = true
-            actionButton.cameraState = .stopped
-            
-            setFingerDetectionProgress(0.0, animated: false)
-            setPulseDetectionProgress(0.0, animated: false)
-        case .detectingFinger:
-            hintLabel.isHidden = false
-            hintLabel.text = "Detecting your pulse, please wait..."
-            actionButton.cameraState = .started
-        case .detectingPulse:
-            hintLabel.isHidden = false
-            hintLabel.text = "Counting heart rate, please keep holding the finger on camera lens"
-            actionButton.cameraState = .started
+        default: break
         }
     }
 }
@@ -101,5 +116,9 @@ extension HeartRateViewController: HeartRateViewProtocol {
     
     func updateChart(values: [CGFloat]) {
         
+    }
+    
+    func updateHeartRateLabel(_ rate: String) {
+        heartBeatRateLabel.text = "\(rate) 🖤"
     }
 }

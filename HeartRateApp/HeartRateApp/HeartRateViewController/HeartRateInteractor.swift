@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 final class HeartRateInteractor {
     
@@ -36,6 +37,12 @@ final class HeartRateInteractor {
         delegate: self
     )
     
+    private lazy var vibrationTimer: RepeatingTimerWrapperProtocol = RepeatingTimerWrapper(
+        timeInterval: 2.0,
+        totalCount: pulseTimerTotalInterval,
+        delegate: self
+    )
+    
     // MARK: - Value holders
     
     private var _isFingerDetected: Bool = false
@@ -60,7 +67,7 @@ final class HeartRateInteractor {
     
     // MARK: - Initializers
     
-    init(sessionManager: VideoSessionManagerProtocol, torchManager: TorchManagerProtocol, fingerTimerTotalInterval: TimeInterval = 3.0, pulseTimerTotalInterval: TimeInterval = 10.0, tickTimeInterval: TimeInterval = 0.01) {
+    init(sessionManager: VideoSessionManagerProtocol, torchManager: TorchManagerProtocol, fingerTimerTotalInterval: TimeInterval = 3.0, pulseTimerTotalInterval: TimeInterval = 10.0, tickTimeInterval: TimeInterval = 0.1) {
         self.sessionManager = sessionManager
         self.torchManager = torchManager
         
@@ -82,6 +89,7 @@ extension HeartRateInteractor {
     
     private func stopPulseDetectionTimer() {
         pulseDetectionTimer.stop()
+        vibrationTimer.stop()
     }
 }
 
@@ -163,6 +171,7 @@ extension HeartRateInteractor: RepeatingTimerWrapperDelegate {
         case fingerDetectionTimer.identifier:
             stopFingerDetectionTimer(isFingerDetected: true)
             pulseDetectionTimer.start()
+            vibrationTimer.start()
             output?.didChangeState(.detectingPulse)
         case pulseDetectionTimer.identifier:
             stopPulseDetectionTimer()
@@ -178,6 +187,8 @@ extension HeartRateInteractor: RepeatingTimerWrapperDelegate {
             output?.didChangeFingerDetectionProgress(Float(interval / fingerTimerTotalInterval))
         case pulseDetectionTimer.identifier:
             output?.didChangePulseDetectionProgress(Float(interval / pulseTimerTotalInterval))
+        case vibrationTimer.identifier:
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         default:
             return
         }
@@ -191,6 +202,7 @@ extension HeartRateInteractor: PeakDetectorDelegate {
     }
     
     func peakDetector(_ detector: PeakDetector, didPerceiveHeartRate heartRate: Double) {
+        output?.didChangeHeartRate(heartRate)
         print(heartRate)
     }
 }

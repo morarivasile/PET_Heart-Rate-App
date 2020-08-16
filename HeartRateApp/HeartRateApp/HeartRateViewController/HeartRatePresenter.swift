@@ -65,4 +65,10 @@ extension HeartRatePresenter: HeartRateInteractorOutputProtocol {
             self.view?.updateChart(values: values)
         }
     }
+    
+    func didChangeHeartRate(_ heartRate: Double) {
+        DispatchQueue.main.async {
+            self.view?.updateHeartRateLabel(String(heartRate))
+        }
+    }
 }

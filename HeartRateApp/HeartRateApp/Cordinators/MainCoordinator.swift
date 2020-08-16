@@ -22,8 +22,8 @@ class MainCoordinator: Coordinator {
         let interactor = HeartRateInteractor(
             sessionManager: VideoSessionManager(),
             torchManager: TorchManager(),
-            fingerTimerTotalInterval: 1.0,
-            pulseTimerTotalInterval: 10.0,
+            fingerTimerTotalInterval: 3.0,
+            pulseTimerTotalInterval: 15.0,
             tickTimeInterval: 0.01
         )
         
