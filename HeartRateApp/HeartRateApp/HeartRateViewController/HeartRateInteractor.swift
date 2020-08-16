@@ -67,7 +67,12 @@ final class HeartRateInteractor {
     
     // MARK: - Initializers
     
-    init(sessionManager: VideoSessionManagerProtocol, torchManager: TorchManagerProtocol, fingerTimerTotalInterval: TimeInterval = 3.0, pulseTimerTotalInterval: TimeInterval = 10.0, tickTimeInterval: TimeInterval = 0.1) {
+    init(sessionManager: VideoSessionManagerProtocol,
+         torchManager: TorchManagerProtocol,
+         fingerTimerTotalInterval: TimeInterval = 3.0,
+         pulseTimerTotalInterval: TimeInterval = 10.0,
+         tickTimeInterval: TimeInterval = 0.1) {
+        
         self.sessionManager = sessionManager
         self.torchManager = torchManager
         
