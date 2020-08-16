@@ -58,10 +58,10 @@
                         <constraint firstAttribute="height" constant="150" id="VYp-Rh-3qp"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66 🖤" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auW-CH-QhH">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 🖤" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auW-CH-QhH">
                     <rect key="frame" x="20" y="393.5" width="374" height="109.5"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="80"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

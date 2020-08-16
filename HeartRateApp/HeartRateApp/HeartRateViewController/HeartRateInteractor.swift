@@ -203,6 +203,5 @@ extension HeartRateInteractor: PeakDetectorDelegate {
     
     func peakDetector(_ detector: PeakDetector, didPerceiveHeartRate heartRate: Double) {
         output?.didChangeHeartRate(heartRate)
-        print(heartRate)
     }
 }
