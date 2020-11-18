@@ -165,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C24E7324BFA78200CF5B6B /* Assets.xcassets */,
+				C36ECED22565A9F9000D8934 /* Localizable.strings */,
 				C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */,
 				C3C24E7824BFA78200CF5B6B /* Info.plist */,
 			);
@@ -242,7 +243,6 @@
 				C36E16B724C17F1E008521C7 /* Extensions */,
 				C36E16B624C17F0C008521C7 /* HeartRateViewController */,
 				C36ECE582565A506000D8934 /* Resources */,
-				C36ECED22565A9F9000D8934 /* Localizable.strings */,
 			);
 			path = HeartRateApp;
 			sourceTree = "<group>";
