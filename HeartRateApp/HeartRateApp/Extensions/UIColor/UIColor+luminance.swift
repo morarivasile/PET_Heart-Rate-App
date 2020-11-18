@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIColor {
-    
     var luminance: CGFloat {
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -22,5 +21,4 @@ extension UIColor {
     var isLight: Bool {
         return luminance >= 0.6
     }
-    
 }

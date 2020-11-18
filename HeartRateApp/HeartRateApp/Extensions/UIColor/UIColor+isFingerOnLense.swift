@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIColor {
-    
     var isFingerOnLense: Bool {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
@@ -18,5 +17,4 @@ extension UIColor {
         
         return (hue < 25 || hue > 340) && (saturation > 0.5)
     }
-    
 }
