@@ -30,7 +30,22 @@ final class HeartRateViewController: UIViewController {
     
     @IBOutlet weak private var actionButton: CameraButton!
     
-    @IBOutlet weak private var lineChartView: UIView!
+    @IBOutlet weak private var graphView: GraphView! {
+        didSet {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            
+            graphView.viewType = .year
+            
+            graphView.inputData = [
+                (formatter.date(from: "10/06/2020"), 50),
+                (formatter.date(from: "16/03/2020"), 70),
+                (formatter.date(from: "18/09/2020"), 40),
+                (formatter.date(from: "18/10/2020"), 110),
+                (formatter.date(from: "13/11/2020"), 30)
+            ].compactMap { GraphView.InputData(date: $0.0!, value: $0.1)}
+        }
+    }
     
     // MARK: - Public Properties
     
