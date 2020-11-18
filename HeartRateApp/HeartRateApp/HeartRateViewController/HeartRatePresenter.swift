@@ -71,4 +71,10 @@ extension HeartRatePresenter: HeartRateInteractorOutputProtocol {
             self.view?.updateHeartRateLabel(Int(heartRate).description)
         }
     }
+    
+    func didHitVibrationTimer() {
+        DispatchQueue.main.async {
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        }
+    }
 }

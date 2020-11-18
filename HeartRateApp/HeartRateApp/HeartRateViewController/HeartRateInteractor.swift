@@ -192,7 +192,7 @@ extension HeartRateInteractor: RepeatingTimerWrapperDelegate {
         case pulseDetectionTimer.identifier:
             output?.didChangePulseDetectionProgress(Float(interval / pulseTimerTotalInterval))
         case vibrationTimer.identifier:
-            UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // TODO - Move to presenter
+            output?.didHitVibrationTimer()
         default:
             return
         }

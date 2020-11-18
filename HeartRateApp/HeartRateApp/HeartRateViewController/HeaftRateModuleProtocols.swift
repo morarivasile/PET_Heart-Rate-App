@@ -39,4 +39,5 @@ protocol HeartRateInteractorOutputProtocol: class {
     func didChangePulseDetectionProgress(_ progress: Float)
     func didChangePulseValues(_ values: [CGFloat])
     func didChangeHeartRate(_ heartRate: Double)
+    func didHitVibrationTimer()
 }
