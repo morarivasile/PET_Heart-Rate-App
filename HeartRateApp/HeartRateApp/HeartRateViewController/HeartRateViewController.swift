@@ -45,13 +45,13 @@ final class HeartRateViewController: UIViewController {
     private var hint: String? {
         switch state {
         case .started:
-            return "To start counting the heart rate place lightly the finger tip on camera lens"
+            return "HeartRateControllerStartedText".localized
         case .stopped:
             return nil
         case .detectingFinger:
-            return "Detecting your pulse, please wait..."
+            return "HeartRateControllerDetectingFingerText".localized
         case .detectingPulse:
-            return "Counting heart rate, please keep holding the finger on camera lens"
+            return "HeartRateControllerDetectingPulseText".localized
         }
     }
     
@@ -69,7 +69,7 @@ final class HeartRateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Camera"
+        title = "HeartRateControllerTitle".localized
         updateView()
     }
     

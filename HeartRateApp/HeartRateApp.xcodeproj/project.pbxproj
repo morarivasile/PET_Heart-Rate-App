@@ -19,6 +19,8 @@
 		C36E16B124C1768A008521C7 /* VideoSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16B024C1768A008521C7 /* VideoSessionManager.swift */; };
 		C36E16B324C176FE008521C7 /* VideoSessionManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16B224C176FE008521C7 /* VideoSessionManagerDelegate.swift */; };
 		C36E16B524C17D40008521C7 /* UIViewController+NibLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16B424C17D40008521C7 /* UIViewController+NibLoaded.swift */; };
+		C36ECED02565A9F9000D8934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C36ECED22565A9F9000D8934 /* Localizable.strings */; };
+		C36ECED82565AAB8000D8934 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36ECED72565AAB8000D8934 /* String+Localization.swift */; };
 		C37EB4BC24C5D702004EDFAC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4BB24C5D702004EDFAC /* Coordinator.swift */; };
 		C37EB4BE24C5D713004EDFAC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4BD24C5D712004EDFAC /* MainCoordinator.swift */; };
 		C37EB4C124C5DBA6004EDFAC /* UIColor+luminance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C024C5DBA6004EDFAC /* UIColor+luminance.swift */; };
@@ -60,6 +62,10 @@
 		C36E16B024C1768A008521C7 /* VideoSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSessionManager.swift; sourceTree = "<group>"; };
 		C36E16B224C176FE008521C7 /* VideoSessionManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSessionManagerDelegate.swift; sourceTree = "<group>"; };
 		C36E16B424C17D40008521C7 /* UIViewController+NibLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NibLoaded.swift"; sourceTree = "<group>"; };
+		C36ECEC92565A9B4000D8934 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C36ECED12565A9F9000D8934 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C36ECED52565AA12000D8934 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C36ECED72565AAB8000D8934 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		C37EB4BB24C5D702004EDFAC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C37EB4BD24C5D712004EDFAC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		C37EB4C024C5DBA6004EDFAC /* UIColor+luminance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+luminance.swift"; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 		C36E16B724C17F1E008521C7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C36ECED62565AAB0000D8934 /* String */,
 				C37EB4C624C62169004EDFAC /* UIImage */,
 				C37EB4BF24C5DB96004EDFAC /* UIColor */,
 				C36E16B424C17D40008521C7 /* UIViewController+NibLoaded.swift */,
@@ -162,6 +169,14 @@
 				C3C24E7824BFA78200CF5B6B /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C36ECED62565AAB0000D8934 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				C36ECED72565AAB8000D8934 /* String+Localization.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		C37EB4BA24C5D6F9004EDFAC /* Cordinators */ = {
@@ -227,6 +242,7 @@
 				C36E16B724C17F1E008521C7 /* Extensions */,
 				C36E16B624C17F0C008521C7 /* HeartRateViewController */,
 				C36ECE582565A506000D8934 /* Resources */,
+				C36ECED22565A9F9000D8934 /* Localizable.strings */,
 			);
 			path = HeartRateApp;
 			sourceTree = "<group>";
@@ -332,6 +348,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = C3C24E5E24BFA77F00CF5B6B;
 			packageReferences = (
@@ -352,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C24E7724BFA78200CF5B6B /* LaunchScreen.storyboard in Resources */,
+				C36ECED02565A9F9000D8934 /* Localizable.strings in Resources */,
 				C3C24E7424BFA78200CF5B6B /* Assets.xcassets in Resources */,
 				C36E16AD24C10650008521C7 /* HeartRateViewController.xib in Resources */,
 			);
@@ -390,6 +408,7 @@
 				C3FC87C924C811C6005CBDD1 /* CameraButton.swift in Sources */,
 				C3380E9C24D29BE500BEB972 /* LowPassFilter.swift in Sources */,
 				C3380E9E24D29BE500BEB972 /* HighPassFilter.swift in Sources */,
+				C36ECED82565AAB8000D8934 /* String+Localization.swift in Sources */,
 				C38DA6CD24D0072100F09B34 /* Identifiable.swift in Sources */,
 				C36E16AB24C1062D008521C7 /* HeartRateViewController.swift in Sources */,
 				C3C24E6B24BFA77F00CF5B6B /* AppDelegate.swift in Sources */,
@@ -417,10 +436,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C36ECED22565A9F9000D8934 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C36ECED12565A9F9000D8934 /* en */,
+				C36ECED52565AA12000D8934 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		C3C24E7524BFA78200CF5B6B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C3C24E7624BFA78200CF5B6B /* Base */,
+				C36ECEC92565A9B4000D8934 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -432,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -493,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

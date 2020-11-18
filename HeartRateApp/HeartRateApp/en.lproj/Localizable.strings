@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  HeartRateApp
+
+  Created by Vasile Morari on 18/11/2020.
+  Copyright © 2020 Vasile Morari. All rights reserved.
+*/
+
+// MARK: - HeartRateViewController -
+
+"HeartRateControllerTitle" = "Camera";
+"HeartRateControllerStartedText" = "To start counting the heart rate place lightly the finger tip on camera lens";
+"HeartRateControllerDetectingFingerText" = "Detecting your pulse, please wait...";
+"HeartRateControllerDetectingPulseText" = "Counting heart rate, please keep holding the finger on camera lens";
