@@ -21,6 +21,7 @@
 		C36E16B524C17D40008521C7 /* UIViewController+NibLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36E16B424C17D40008521C7 /* UIViewController+NibLoaded.swift */; };
 		C36ECED02565A9F9000D8934 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C36ECED22565A9F9000D8934 /* Localizable.strings */; };
 		C36ECED82565AAB8000D8934 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36ECED72565AAB8000D8934 /* String+Localization.swift */; };
+		C36ECEE12565B3E3000D8934 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36ECEE02565B3E3000D8934 /* GraphView.swift */; };
 		C37EB4BC24C5D702004EDFAC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4BB24C5D702004EDFAC /* Coordinator.swift */; };
 		C37EB4BE24C5D713004EDFAC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4BD24C5D712004EDFAC /* MainCoordinator.swift */; };
 		C37EB4C124C5DBA6004EDFAC /* UIColor+luminance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37EB4C024C5DBA6004EDFAC /* UIColor+luminance.swift */; };
@@ -66,6 +67,7 @@
 		C36ECED12565A9F9000D8934 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C36ECED52565AA12000D8934 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C36ECED72565AAB8000D8934 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		C36ECEE02565B3E3000D8934 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C37EB4BB24C5D702004EDFAC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C37EB4BD24C5D712004EDFAC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		C37EB4C024C5DBA6004EDFAC /* UIColor+luminance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+luminance.swift"; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		C36ECEDF2565B3D1000D8934 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C36ECEE02565B3E3000D8934 /* GraphView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C37EB4BA24C5D6F9004EDFAC /* Cordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +246,7 @@
 		C3C24E6924BFA77F00CF5B6B /* HeartRateApp */ = {
 			isa = PBXGroup;
 			children = (
+				C36ECEDF2565B3D1000D8934 /* Views */,
 				C3C24E6A24BFA77F00CF5B6B /* AppDelegate.swift */,
 				C38DA6CB24D0071300F09B34 /* Protocols */,
 				C37EB4BA24C5D6F9004EDFAC /* Cordinators */,
@@ -408,6 +419,7 @@
 				C3FC87C924C811C6005CBDD1 /* CameraButton.swift in Sources */,
 				C3380E9C24D29BE500BEB972 /* LowPassFilter.swift in Sources */,
 				C3380E9E24D29BE500BEB972 /* HighPassFilter.swift in Sources */,
+				C36ECEE12565B3E3000D8934 /* GraphView.swift in Sources */,
 				C36ECED82565AAB8000D8934 /* String+Localization.swift in Sources */,
 				C38DA6CD24D0072100F09B34 /* Identifiable.swift in Sources */,
 				C36E16AB24C1062D008521C7 /* HeartRateViewController.swift in Sources */,

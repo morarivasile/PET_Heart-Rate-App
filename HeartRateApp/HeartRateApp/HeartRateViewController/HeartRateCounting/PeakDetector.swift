@@ -1,8 +1,9 @@
 //
-//  PeakDetector.swift
-//  PulseCounting
+//  HeartRateInteractor.swift
+//  HeartRateApp
 //
-//  Created by Vasile Morari on 30/07/2020.
+//  Created by Vasile Morari on 28/07/2020.
+//  Copyright © 2020 Vasile Morari. All rights reserved.
 //
 
 import Foundation
