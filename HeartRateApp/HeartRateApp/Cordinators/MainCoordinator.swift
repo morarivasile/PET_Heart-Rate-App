@@ -18,12 +18,14 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let viewController = HeartRateViewController.nibLoaded
+        let videoSessionManager = VideoSessionManager()
+        let torchManager = TorchManager()
         
         let interactor = HeartRateInteractor(
-            sessionManager: VideoSessionManager(),
-            torchManager: TorchManager(),
+            sessionManager: videoSessionManager,
+            torchManager: torchManager,
             fingerTimerTotalInterval: 3.0,
-            pulseTimerTotalInterval: 15.0,
+            pulseTimerTotalInterval: 10.0,
             tickTimeInterval: 0.01
         )
         

@@ -38,7 +38,7 @@ final class HeartRateInteractor {
     )
     
     private lazy var vibrationTimer: RepeatingTimerWrapperProtocol = RepeatingTimerWrapper(
-        timeInterval: 2.0,
+        timeInterval: 1.0,
         totalCount: pulseTimerTotalInterval,
         delegate: self
     )
@@ -161,7 +161,6 @@ extension HeartRateInteractor: VideoSessionManagerDelegate {
         
         if isDetectingPulse {
             pulseValues.append(imageAverageColor.luminance)
-            
             peakDetector.addValueToAnalyze(Double(imageAverageColor.luminance))
         } else {
             pulseValues = []
@@ -193,7 +192,7 @@ extension HeartRateInteractor: RepeatingTimerWrapperDelegate {
         case pulseDetectionTimer.identifier:
             output?.didChangePulseDetectionProgress(Float(interval / pulseTimerTotalInterval))
         case vibrationTimer.identifier:
-            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred() // TODO - Move to presenter
         default:
             return
         }

@@ -50,12 +50,12 @@ final class RepeatingTimerWrapper: RepeatingTimerWrapperProtocol {
     
     func start() {
         runCount = 0
-        timer.resume()
+        timer.start()
     }
     
     func stop() {
         runCount = 0
-        timer.suspend()
+        timer.stop()
     }
     
     private func runTimerAction() {
