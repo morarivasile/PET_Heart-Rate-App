@@ -8,7 +8,6 @@
 
 import Foundation
 import AVFoundation
-import UIKit
 
 final class HeartRateInteractor {
     
@@ -17,11 +16,7 @@ final class HeartRateInteractor {
     private var sessionManager: VideoSessionManagerProtocol
     private let torchManager: TorchManagerProtocol
     
-    private lazy var peakDetector: PeakDetector = {
-        let detector = PeakDetector()
-        detector.delegate = self
-        return detector
-    }()
+    private lazy var peakDetector = PeakDetector(delegate: self)
     
     // MARK: - Timers
     
@@ -201,10 +196,6 @@ extension HeartRateInteractor: RepeatingTimerWrapperDelegate {
 
 // MARK: - PeakDetectorDelegate
 extension HeartRateInteractor: PeakDetectorDelegate {
-    func peakDetector(_ detector: PeakDetector, didDetectPeakOfValue peakValue: Double, peakJump: Double) {
-        
-    }
-    
     func peakDetector(_ detector: PeakDetector, didPerceiveHeartRate heartRate: Double) {
         output?.didChangeHeartRate(heartRate)
     }

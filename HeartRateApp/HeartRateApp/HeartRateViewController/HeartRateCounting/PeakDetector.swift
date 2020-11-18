@@ -12,6 +12,10 @@ protocol PeakDetectorDelegate: class {
     func peakDetector(_ detector: PeakDetector, didPerceiveHeartRate heartRate: Double)
 }
 
+extension PeakDetectorDelegate {
+    func peakDetector(_ detector: PeakDetector, didDetectPeakOfValue peakValue: Double, peakJump: Double) {}
+}
+
 final class PeakDetector {
     
     private var noiseFilter: LowPassFilter = LowPassFilter(samepleRate: 120, cutoffFrequency: 45)
@@ -28,6 +32,10 @@ final class PeakDetector {
     
     
     weak var delegate: PeakDetectorDelegate?
+    
+    init(delegate: PeakDetectorDelegate?) {
+        self.delegate = delegate
+    }
     
     func addValueToAnalyze(_ value: Double) {
         shiftFilter.update(newValue: value)
